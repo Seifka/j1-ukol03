@@ -6,18 +6,6 @@ public class Pocitac {
     private Pamet ram;
     private Disk pevnyDisk;
 
-    public Boolean jeZapntuty() {
-               return jeZapnuty;
-    }
-
-    public void zapniSe() {
-
-    }
-
-    public void vypniSe() {
-
-    }
-
 
     public Procesor getCpu() {
         return cpu;
@@ -52,4 +40,35 @@ public class Pocitac {
                 ", pevnyDisk=" + pevnyDisk +
                 '}';
     }
+
+    public Boolean jeZapntuty() {
+        return jeZapnuty;
+    }
+
+    public void zapniSe() {
+        if (jeZapnuty) {
+            System.err.println("Počítač je již zapnutý");
+        } else {
+            System.out.println("Počítač je vypnutý, ale zapíná se.");
+        }
+        if (cpu == null || ram == null || pevnyDisk == null) {
+            System.err.println("Počítač nelze zapnout, chybí CPU, RAM a pevný disk.");
+        } else {
+            jeZapnuty = true;
+            System.out.println("Počítač je zapnutý.");
+
+        }
+    }
+
+    public void vypniSe() {
+        if (jeZapnuty) {
+            jeZapnuty = false;
+        } else {
+            System.out.println("Počítač se vypnul");
+        }
+
+
+    }
+
 }
+

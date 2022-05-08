@@ -32,12 +32,13 @@ public class HlavniProgram {
         mujpocitac.setRam(mojepamet);
         mujpocitac.setPevnyDisk(mujdisk);
 
-        mujpocitac.jeZapntuty();
         mujpocitac.zapniSe();
+        mujpocitac.zapniSe();
+        System.out.println(mujpocitac.toString());
         mujpocitac.vypniSe();
 
-
-
+        mujpocitac.vypniSe();
+        mujpocitac.vypniSe();
 
 
 
