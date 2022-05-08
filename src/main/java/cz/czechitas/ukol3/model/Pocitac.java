@@ -6,13 +6,18 @@ public class Pocitac {
     private Pamet ram;
     private Disk pevnyDisk;
 
-    public boolean isJeZapnuty() {
-        return jeZapnuty;
+    public Boolean jeZapntuty() {
+               return jeZapnuty;
     }
 
-    public void setJeZapnuty(boolean jeZapnuty) {
-        this.jeZapnuty = jeZapnuty;
+    public void zapniSe() {
+
     }
+
+    public void vypniSe() {
+
+    }
+
 
     public Procesor getCpu() {
         return cpu;

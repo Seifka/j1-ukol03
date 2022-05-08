@@ -32,6 +32,13 @@ public class HlavniProgram {
         mujpocitac.setRam(mojepamet);
         mujpocitac.setPevnyDisk(mujdisk);
 
+        mujpocitac.jeZapntuty();
+        mujpocitac.zapniSe();
+        mujpocitac.vypniSe();
+
+
+
+
 
 
         System.out.println("Program spuštěn.");
