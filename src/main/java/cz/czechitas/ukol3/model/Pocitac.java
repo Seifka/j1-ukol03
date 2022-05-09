@@ -6,7 +6,6 @@ public class Pocitac {
     private Pamet ram;
     private Disk pevnyDisk;
 
-
     public Procesor getCpu() {
         return cpu;
     }
@@ -41,7 +40,7 @@ public class Pocitac {
                 '}';
     }
 
-    public Boolean jeZapntuty() {
+    public Boolean jeZapnuty() {
         return jeZapnuty;
     }
 
@@ -63,12 +62,33 @@ public class Pocitac {
     public void vypniSe() {
         if (jeZapnuty) {
             jeZapnuty = false;
-        } else {
             System.out.println("Počítač se vypnul");
+        }
+    }
+
+
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (jeZapnuty) {
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+            System.out.println("Na disk byl přidán nový soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
+        }
+           if (velikost > pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto()) {
+               System.out.println("Soubor je moc velký, nelze ho uložit na disk");
+
+        }
+    }
+
+    public void vymazSouboryOVelikosti(long velikost) {
+        if (jeZapnuty) {
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+            System.out.println("Na disku byl smazán soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
+        }
+
         }
 
 
-    }
+
+
 
 }
 

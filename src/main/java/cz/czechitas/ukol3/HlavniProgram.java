@@ -27,18 +27,22 @@ public class HlavniProgram {
         mujprocesor.setVyrobce("Intel");
 
         Pocitac mujpocitac = new Pocitac();
-        mujpocitac.jeZapntuty();
+        mujpocitac.jeZapnuty();
         mujpocitac.setCpu(mujprocesor);
         mujpocitac.setRam(mojepamet);
         mujpocitac.setPevnyDisk(mujdisk);
 
-        mujpocitac.zapniSe();
-        mujpocitac.zapniSe();
+        mujpocitac.zapniSe(); //počítač se zapíná
+        mujpocitac.zapniSe(); //měla by být chybová hláška
         System.out.println(mujpocitac.toString());
-        mujpocitac.vypniSe();
+        mujpocitac.vypniSe(); //počítač se vypnul
 
         mujpocitac.vypniSe();
-        mujpocitac.vypniSe();
+        mujpocitac.vypniSe(); // opakované volání ignoruje
+
+        mujpocitac.vytvorSouborOVelikosti(100_100_000_000L);
+        mujpocitac.vymazSouboryOVelikosti(9_500_350L);
+
 
 
 
