@@ -19,6 +19,7 @@ public class HlavniProgram {
         mujdisk.setKapacita(52_566_962_000L);
         mujdisk.setVyuziteMisto(10_000_000_000L);
 
+
         Pamet mojepamet = new Pamet();
         mojepamet.setKapacita(15_530_000_000L);
 

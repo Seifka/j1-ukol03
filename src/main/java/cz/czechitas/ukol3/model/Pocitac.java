@@ -32,12 +32,7 @@ public class Pocitac {
 
     @Override
     public String toString() {
-        return "Pocitac{" +
-                "jeZapnuty=" + jeZapnuty +
-                ", cpu=" + cpu +
-                ", ram=" + ram +
-                ", pevnyDisk=" + pevnyDisk +
-                '}';
+        return "Pocitac{" + "jeZapnuty=" + jeZapnuty + ", cpu=" + cpu + ", ram=" + ram + ", pevnyDisk=" + pevnyDisk + '}';
     }
 
     public Boolean jeZapnuty() {
@@ -49,13 +44,12 @@ public class Pocitac {
             System.err.println("Počítač je již zapnutý");
         } else {
             System.out.println("Počítač je vypnutý, ale zapíná se.");
-        }
-        if (cpu == null || ram == null || pevnyDisk == null) {
-            System.err.println("Počítač nelze zapnout, chybí CPU, RAM a pevný disk.");
-        } else {
-            jeZapnuty = true;
-            System.out.println("Počítač je zapnutý.");
-
+            if (cpu == null || ram == null || pevnyDisk == null) {
+                System.err.println("Počítač nelze zapnout, chybí CPU, RAM a pevný disk.");
+            } else {
+                jeZapnuty = true;
+                System.out.println("Počítač se zapnul.");
+            }
         }
     }
 
@@ -69,26 +63,26 @@ public class Pocitac {
 
     public void vytvorSouborOVelikosti(long velikost) {
         if (jeZapnuty) {
-            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
-            System.out.println("Na disk byl přidán nový soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
-        }
-           if (velikost > pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto()) {
-               System.out.println("Soubor je moc velký, nelze ho uložit na disk");
+            if (pevnyDisk.getKapacita() < (pevnyDisk.getVyuziteMisto() + velikost)) {
+                System.err.println("Soubor je moc velký, nelze ho uložit na disk");
+            } else {
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+                System.out.println("Na disk byl přidán nový soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
+            }
+        } else {
+            System.err.println("Soubor nelze vytvořit, počtač je vypnutý");
 
         }
     }
 
     public void vymazSouboryOVelikosti(long velikost) {
         if (jeZapnuty) {
-            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
-            System.out.println("Na disku byl smazán soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
+            if (pevnyDisk.getVyuziteMisto() - velikost <= 0) {
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+                System.out.println("Na disku byl smazán soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
+            }
+        } else {
+            System.err.println("Soubor nelze smazat, počítač je vypnutý");
         }
-
-        }
-
-
-
-
-
+    }
 }
-
