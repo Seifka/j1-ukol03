@@ -77,7 +77,7 @@ public class Pocitac {
 
     public void vymazSouboryOVelikosti(long velikost) {
         if (jeZapnuty) {
-            if (pevnyDisk.getVyuziteMisto() - velikost <= 0) {
+            if (pevnyDisk.getVyuziteMisto() - velikost >= 0) {
                 pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
                 System.out.println("Na disku byl smazán soubor, využitá kapacita disku je" + pevnyDisk.getVyuziteMisto());
             }
